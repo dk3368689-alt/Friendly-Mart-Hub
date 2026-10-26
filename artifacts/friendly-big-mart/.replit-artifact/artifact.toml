@@ -17,7 +17,7 @@ run = "pnpm --filter @workspace/friendly-big-mart run dev"
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/friendly-big-mart", "run", "build" ]
 serve = "static"
-publicDir = "artifacts/friendly-big-mart/dist/public"
+publicDir = "artifacts/friendly-big-mart/dist"
 
 [[services.production.rewrites]]
 from = "/*"
