@@ -1,0 +1,8 @@
+[build]
+  publish = "artifacts/friendly-big-mart/dist"
+
+# Single-page app: serve index.html for client-side routes like /staff
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
