@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Friendly Big Mart"
+description = "A mobile-first grocery storefront and staff order dashboard for Friendly Big Mart, with clearly labeled demo data and ordering flows prepared for future ERP and WhatsApp integrations."
+version = "1.0.0"
+id = "artifacts/friendly-big-mart"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19985
+
+[services.development]
+run = "pnpm --filter @workspace/friendly-big-mart run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/friendly-big-mart", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/friendly-big-mart/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19985"
+BASE_PATH = "/"
